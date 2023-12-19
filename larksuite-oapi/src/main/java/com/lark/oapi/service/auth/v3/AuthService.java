@@ -188,7 +188,7 @@ public class AuthService {
                     , req);
 
             // 反序列化
-            InternalAppAccessTokenResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, InternalAppAccessTokenResp.class);
+            InternalAppAccessTokenResp resp = (InternalAppAccessTokenResp) UnmarshalRespUtil.unmarshalResp(httpResponse, InternalAppAccessTokenResp.class);
             if (resp == null) {
                 log.error(String.format(
                         "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/auth/v3/app_access_token/internal"

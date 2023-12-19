@@ -171,6 +171,64 @@ public class AuthenService {
 
             return resp;
         }
+
+
+        public MinaCode2SessionResp code2Session(MinaCode2SessionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+              , "/open-apis/mina/v2/tokenLoginValidate"
+              , Sets.newHashSet(AccessTokenType.App)
+              , req);
+
+            // 反序列化
+            MinaCode2SessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MinaCode2SessionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                  "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mina/v2/tokenLoginValidate"
+                  , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                  httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                    StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
+        public MinaCode2SessionResp code2Session(MinaCode2SessionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
+              , "/open-apis/mina/v2/tokenLoginValidate"
+              , Sets.newHashSet(AccessTokenType.App)
+              , req);
+
+            // 反序列化
+            MinaCode2SessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, MinaCode2SessionResp.class);
+            if (resp == null) {
+                log.error(String.format(
+                  "%s,callError,req=%s,respHeader=%s,respStatusCode=%s,respBody=%s,", "/open-apis/mina/v2/tokenLoginValidate"
+                  , Jsons.DEFAULT.toJson(req), Jsons.DEFAULT.toJson(httpResponse.getHeaders()),
+                  httpResponse.getStatusCode(), new String(httpResponse.getBody(),
+                    StandardCharsets.UTF_8)));
+                throw new IllegalArgumentException("The result returned by the server is illegal");
+            }
+
+            resp.setRawResponse(httpResponse);
+            resp.setRequest(req);
+
+            return resp;
+        }
+
     }
 
     public static class Authorize {

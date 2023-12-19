@@ -11,13 +11,13 @@ public class InternalAppAccessTokenSample {
 
     public static void main(String arg[]) throws Exception {
         // 构建client
-        Client client = Client.newBuilder("appId", "appSecret").build();
+        Client client = Client.newBuilder("cli_a22844c9913b5013", "hNMPd9fC8JyLOdw7eYdtdf1Niy06FijF").build();
 
         // 创建请求对象
         InternalAppAccessTokenReq req = InternalAppAccessTokenReq.newBuilder()
                 .internalAppAccessTokenReqBody(InternalAppAccessTokenReqBody.newBuilder()
-                        .appId("cli_hsjeriogfkd93jf84")
-                        .appSecret("jdsfslkjdg8e73hdf9237enbd")
+                        .appId("cli_a22844c9913b5013")
+                        .appSecret("hNMPd9fC8JyLOdw7eYdtdf1Niy06FijF")
                         .build())
                 .build();
 

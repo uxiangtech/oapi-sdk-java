@@ -14,7 +14,6 @@
 package com.lark.oapi.service.auth.v3.model;
 
 import com.lark.oapi.core.response.BaseResponse;
-import com.lark.oapi.core.response.EmptyData;
 
-public class InternalAppAccessTokenResp extends BaseResponse<EmptyData> {
+public class InternalAppAccessTokenResp extends BaseResponse<InternalAppAccessTokenRespBody> {
 }
