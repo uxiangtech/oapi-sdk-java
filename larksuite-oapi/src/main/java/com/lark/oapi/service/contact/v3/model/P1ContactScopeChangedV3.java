@@ -19,4 +19,12 @@ public class P1ContactScopeChangedV3 extends BaseEvent {
 
     @SerializedName("event")
     private P1ContactScopeChangedV3Data event;
+
+    public P1ContactScopeChangedV3Data getEvent() {
+        return event;
+    }
+
+    public void setEvent(P1ContactScopeChangedV3Data event) {
+        this.event = event;
+    }
 }
